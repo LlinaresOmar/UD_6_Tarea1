@@ -22,6 +22,12 @@ public class EmpleadoBR {
         if (tipo == TipoEmpleado.venedor) {
             salario = 1000;
         }
+        if (tipo == null){
+            return -1;
+        }
+        if (ventaMes < 0){
+            return -1;
+        }
         if (ventaMes >= 1000) {
             salario += 100;
         }
@@ -29,7 +35,11 @@ public class EmpleadoBR {
             salario += 100;
         }
         if (salario > 0) {
-            return salario += horasExtra * 20;
+            if (horasExtra < 0){
+                return -1;
+            } else {
+                return salario += horasExtra * 20;
+            }
         } else {
             return -1;
         }

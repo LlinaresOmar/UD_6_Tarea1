@@ -36,4 +36,70 @@ class EmpleadoBRTest {
     public void testCalculaSalarioNeto500to500() {
         assertEquals(500, calcularSalarioNeto(500) , 0.01);
     }
+
+    @Test
+    public void testCalculaSalarioNeto0to0() {
+        assertEquals(0, calcularSalarioNeto(0) , 0.01);
+    }
+
+    @Test
+    public void testCalculaSalarioNetoMenos1toMenos1() {
+        assertEquals(-1, calcularSalarioNeto(-1) , 0.01);
+    }
+
+    @Test
+    public void testCalculaSalarioBrutoV1() {
+        assertEquals(1360, calcularSalarioBruto(TipoEmpleado.venedor, 2000, 8) , 0.01);
+    }
+
+    @Test
+    public void testCalculaSalarioBrutoV2() {
+        assertEquals(1260, calcularSalarioBruto(TipoEmpleado.venedor, 1500, 3) , 0.01);
+    }
+
+    @Test
+    public void testCalculaSalarioBrutoV3() {
+        assertEquals(1100, calcularSalarioBruto(TipoEmpleado.venedor, 1499.99f, 0) , 0.01);
+    }
+
+    @Test
+    public void testCalculaSalarioBrutoE1() {
+        assertEquals(1760, calcularSalarioBruto(TipoEmpleado.encarregat, 1250, 8) , 0.01);
+    }
+
+    @Test
+    public void testCalculaSalarioBrutoE2() {
+        assertEquals(1600, calcularSalarioBruto(TipoEmpleado.encarregat, 1000, 0) , 0.01);
+    }
+
+    @Test
+    public void testCalculaSalarioBrutoE3() {
+        assertEquals(1560, calcularSalarioBruto(TipoEmpleado.encarregat, 999.99f, 3) , 0.01);
+    }
+
+    @Test
+    public void testCalculaSalarioBrutoE4() {
+        assertEquals(1500, calcularSalarioBruto(TipoEmpleado.encarregat, 500, 0) , 0.01);
+    }
+
+    @Test
+    public void testCalculaSalarioBrutoE5() {
+        assertEquals(1660, calcularSalarioBruto(TipoEmpleado.encarregat, 0, 8) , 0.01);
+    }
+
+    @Test
+    public void testCalculaSalarioBrutoE6() {
+        assertEquals(-1, calcularSalarioBruto(TipoEmpleado.encarregat, -1, 8) , 0.01);
+    }
+
+    @Test
+    public void testCalculaSalarioBrutoE7() {
+        assertEquals(-1, calcularSalarioBruto(TipoEmpleado.encarregat, 1500, -1) , 0.01);
+    }
+
+    @Test
+    public void testCalculaSalarioBrutoE8() {
+        assertEquals(-1, calcularSalarioBruto(null, 1500, 8) , 0.01);
+    }
+
 }
